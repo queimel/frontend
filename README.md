@@ -1,4 +1,4 @@
-# frontend
+# Nivelación Front End
 
 ## Configuración proyecto
 
@@ -19,8 +19,28 @@ Antes de inicializar nuestro proyecto, comprobemos que tenemos lo basico instala
 Para comprobar:
 
 * nodeJS: 
- `node --version`
+ `node --version` -->
  `v7.4.0`
 
+ * NPM: 
+ `npm --version` -->
+ `4.0.5`
 
+* NVM: 
+ `nvm --version` -->
+ `0.33.8`
+
+
+Para inicializar el proyecto con NPM, creamos un package.json para indicar información y dependencias del proyecto a crear. Esto se hace ejecutando el comando `npm init`
+
+    $ npm init
+    package name: (nombre del peoyecto)
+    version: (1.0.0) // version del proyecto
+    description: // una breve descripcion
+    entry point: (index.js) // el punto de acceso a nuestra app
+    test command: // el comando con el cual ejecutaremos test
+    git repository: // url del repo de git
+    keywords: // palabras claves
+    author: // autor
+    license: (ISC)$ // tipo de licencia
 
