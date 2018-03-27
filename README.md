@@ -44,3 +44,56 @@ Para inicializar el proyecto con NPM, creamos un package.json para indicar infor
     author: // autor
     license: (ISC)$ // tipo de licencia
 
+
+##Instalar React JS en el proyecto
+
+Como nuestro proyecto ya fue creado, debemos instalar React con los siguientes pasos:
+
+* __Descargar la libreria e instalarla con npm__
+
+    `npm install --save react react-dom`
+
+* __Habilitar ES6 y JSX__: Es recomendable usar [Babel](https://babeljs.io) para usar ECMAScript 6  y JSX en nuestro proyecto. Babel, tomara nuestro codigo escrito en ES6 y los transformara en ES5 que es el estandar para todos los navegadores actuales. JSX es una extension al lenguaje de JavaScript que trabaja bien con React.
+
+  * Para instalar __Babel__: 
+  
+    `npm install --save-dev babel-loader babel-core`
+
+  * En nuestro archivo webpack.config.js, debemos agregar dentro de `module` una nueva `rules`:
+
+        { 
+            test: /\.js$/, 
+            exclude: /node_modules/, 
+            loader: "babel-loader" 
+        }
+
+
+  * Ahora creamos un archivo `.babelrc`, en la raiz del proyecto, para agregar algunos plugins
+
+      `npm install babel-preset-env --save-dev`
+
+  * Se debe instalar el plugin de react para babel:
+
+    `npm install --save-dev babel-cli babel-preset-react`
+
+  * Ahora en nuestro archivo `.babelrc` agregamos:
+
+        {
+            "presets": ["react"]
+        }
+
+Ahora, ya tenemos  **ReactJS**  instalado en el proyecto,  para probar que todo funciones, vamos a hacer un hola mundo:
+
+* En nuestro archivo `src/index.js` escribimos:
+
+        import React from 'react';
+        import ReactDOM from 'react-dom';
+
+        ReactDOM.render(
+            <h1>Hello, world!</h1>,
+            document.getElementById('root')
+        );
+
+* Agregamos una etiqueta `root` en nuestro archivo `src/index.html`
+
+        <div id="root"></div>
