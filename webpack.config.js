@@ -3,24 +3,30 @@ var HTMLWebpackPlugin = require("html-webpack-plugin");
 var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  resolve: {
+    extensions: [".jsx", ".js"]
+  },
+
+  entry: "./src/index.jsx",
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist")
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: path.resolve("src/index.html"),
+      template: path.resolve("src/index.html")
     }),
     new LiveReloadPlugin({})
   ],
-  module:{
-    rules:[
+  module: {
+    rules: [
       {
-        test:/\.(s*)css$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        test: /\.(s*)css$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
       },
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
-     ]
+      { test: /(\.js|\.jsx)$/,
+        exclude: /node_modules/,
+        loader: "babel-loader" }
+    ]
   }
 };
